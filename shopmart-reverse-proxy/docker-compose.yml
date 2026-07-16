@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+
+  user-service:
+    build:
+      context: ./user-service
+
+    container_name: user-service
+
+    networks:
+      - shopmart-network
+
+  product-service:
+    build:
+      context: ./product-service
+
+    container_name: product-service
+
+    networks:
+      - shopmart-network
+
+  nginx:
+
+    image: nginx:latest
+
+    container_name: nginx
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+
+    depends_on:
+      - user-service
+      - product-service
+
+    networks:
+      - shopmart-network
+
+networks:
+
+  shopmart-network:
+
+    driver: bridge

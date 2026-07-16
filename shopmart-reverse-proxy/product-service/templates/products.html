@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>ShopMart Products</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛒 ShopMart Product Service</h1>
+
+<p class="subtitle">
+Docker Microservice - Product Catalog
+</p>
+
+<div class="products">
+
+{% for product in products %}
+
+<div class="card">
+
+<img src="{{ product.image }}">
+
+<h2>{{ product.name }}</h2>
+
+<p>{{ product.price }}</p>
+
+<button>Buy Now</button>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>
