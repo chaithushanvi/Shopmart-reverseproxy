@@ -57,3 +57,51 @@ user-service/
 product-service/
 
 "This is another Flask application that displays the product catalog."
+
+nginx.conf: this is the file acts as a reverse proxy if the user request start with the users and it send it to user-service:5001
+            simillarly products as product-service:5002
+
+
+Request Flow
+============
+User opens
+
+http://<EC2-Public-IP>/users
+
+        │
+
+        ▼
+
+Nginx receives request
+
+        │
+
+Checks nginx.conf
+
+        │
+
+Matches /users
+
+        │
+
+Forwards request
+
+        │
+
+User Service
+
+        │
+
+Flask renders HTML page
+
+        │
+
+Returns response
+
+        │
+
+Nginx sends response
+
+        │
+
+Browser displays User Page
