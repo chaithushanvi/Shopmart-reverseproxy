@@ -1,7 +1,7 @@
 **Docker Networking & Reverse Proxy**
 
-Shopmart-Ecommerce
-=================
+Ecommerce shopmart application
+=====================
 
 In this project, I built a mini e-commerce application using a microservices architecture. The application has two backend services: a User Service and a Product Service. Instead of exposing each service directly to users, I used Nginx as a reverse proxy, which acts as a single entry point
 
@@ -58,8 +58,6 @@ product-service/
 
 "This is another Flask application that displays the product catalog."
 
-nginx.conf: this is the file acts as a reverse proxy if the user request start with the users and it send it to user-service:5001
-            simillarly products as product-service:5002
 
 
 Request Flow
